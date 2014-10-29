@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Colors, Styles and Gradients</title>
+    <script type="text/javascript">
+        function setup() {
+            var canvas = document.getElementById('lessonCanvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+		<!-- canvas outline -->
+		ctx.strokeRect(0, 0, 300, 300);
+
+		ctx.fillStyle = 'rgb(0, 0, 0)';
+
+		<!-- shadow -->
+		ctx.beginPath();
+		ctx.moveTo(175, 262);
+		ctx.quadraticCurveTo(142, 273, 115, 258);
+		ctx.bezierCurveTo(60, 268, 155, 286, 175, 262);
+		ctx.fill();
+
+		<!-- cup inline -->
+		ctx.beginPath();
+      		ctx.moveTo(110.5, 260);
+      		ctx.bezierCurveTo(110.5, 260, 140, 246, 176.5, 260);
+		ctx.stroke();
+
+		<!-- cup outline -->
+		ctx.beginPath();
+		ctx.moveTo(194, 79);
+		ctx.lineTo(95, 79);
+		ctx.bezierCurveTo(96, 98, 95, 102, 95, 102);
+		ctx.bezierCurveTo(90, 125, 100, 150, 100, 150);
+		ctx.bezierCurveTo(111, 184.5, 110, 262, 110, 262);
+		ctx.bezierCurveTo(143, 274, 175, 262, 175, 262);
+		ctx.bezierCurveTo(177, 188, 191, 145, 191, 145);
+		ctx.bezierCurveTo(191, 145, 199, 121.5, 194, 102.5);
+		ctx.lineTo(194, 79);
+		ctx.stroke();
+
+            }
+        }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="lessonCanvas" width="300" height="300"style="margin:100px;"></canvas>
+  </body>
+</html>

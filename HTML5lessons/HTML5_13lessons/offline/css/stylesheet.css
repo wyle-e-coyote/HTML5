@@ -1,0 +1,15 @@
+﻿body {
+    height: 100%;
+    background: White;
+}
+
+#note{
+    width: 320px;
+    height: 200px;
+    background: LightYellow;
+    border: 1px dashed gray;
+    overflow-y: scroll;
+    padding: 4px;
+    font: normal gray 13px Arial;
+}
+

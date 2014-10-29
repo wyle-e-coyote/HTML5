@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 Video Lesson</title>
+</head>
+<body>
+<video controls poster='poster320.jpg' width='320' height='180'>
+	<source src='videos/BigBuck.ogg' type='video/ogg; codecs="theora, vorbis"'>
+	<source src='videos/BigBuck.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>    
+	<object width="320" height="180" type="application/x-shockwave-flash" data="player/flowplayer-3.2.5.swf"> 
+  		<param name="movie" value="player/flowplayer-3.2.5.swf" /> 
+	   	<param name="allowfullscreen" value="true" /> 
+	    	<param name="flashvars" value='config={"clip": {"url": "videos/BigBuck.mp4", "autoPlay":false, "autoBuffering":true}}' /> 
+   		<h1><a href="videos/BigBuck.mp4">Download the video</a></h1> 
+	</object>
+</video>
+</body>
+</html>

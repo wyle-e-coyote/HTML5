@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkers</title>
+	<link rel="stylesheet" href="checkers.css"/>
+<script>
+var rows = [],board,dragging;
+function setup()
+{
+	board = document.getElementById('board');
+	board.ondragstart = dragStarted;
+	var squares = board.getElementsByTagName('div');
+	var row = 0;
+	for(var i = 0, square; square = squares[i]; i++){
+		// Enable drag and drop for each square
+		square.ondragenter = preventDefault;	
+		square.ondragover = dragOver;
+		square.ondrop = dragDrop;
+
+		// Organize each square into rows
+		if(!rows[row])
+			rows.push([]);
+		rows[row].push(square);
+		if((i+1) % 8 == 0)
+			row++;
+	}
+	startGame();
+}
+function startGame()
+{
+	var squares = board.getElementsByTagName('div');
+	// Clear existing squares
+	for(var i = 0, square; square = squares[i]; i++)
+		square.innerHTML = '&nbsp;';
+	for(i = 0; i < 8; i++){
+		rows[0][i].innerHTML = '<img src="images/pawn_black.png" alt="Black Pawn"/>';
+		rows[1][i].innerHTML = '<img src="images/pawn_black.png" alt="Black Pawn"/>';
+		rows[6][i].innerHTML = '<img src="images/pawn_red.png" alt="Red Pawn"/>';
+		rows[7][i].innerHTML = '<img src="images/pawn_red.png" alt="Red Pawn"/>';
+	}
+}
+function dragDrop(event){
+	if(this.innerHTML == '&nbsp;'){
+		dragging.parentNode.innerHTML = '&nbsp;';
+		this.innerHTML = event.dataTransfer.getData('text/html');
+	}
+	return preventDefault(event);
+}
+function dragStarted( event ){
+	dragging = event.target;
+	event.dataTransfer.setData( 'text/html', dragging.parentNode.innerHTML );
+}
+function dragOver( event ){
+	if(this.innerHTML == '&nbsp;')
+		return preventDefault(event);
+	return true;
+}
+function preventDefault( event ){
+	event.stopPropagation();
+	event.preventDefault();
+	return false;
+}
+</script>
+</head>
+<body onload="setup()">
+	<div id="board">
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+	</div>
+</body>
+</html>

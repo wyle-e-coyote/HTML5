@@ -1,0 +1,8 @@
+﻿CACHE MANIFEST
+# v1
+
+# Explicitly cached 'master entries'.
+CACHE:
+notepad_example_offline.html
+css/stylesheet.css
+scripts/main.js

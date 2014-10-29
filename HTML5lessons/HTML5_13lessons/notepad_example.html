@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LocalStorage Example</title>
+    <meta charset=utf-8 />
+    <style type="text/css">
+	#note {
+		width: 320px;
+		height: 200px;
+		background: LightYellow;
+		border: 1px dashed gray;
+		overflow-y: scroll;
+		padding: 4px;
+		font: normal gray 13px Arial;
+		color: gray;
+	}
+    </style>
+</head>
+
+<body onload="initialize()">
+  <section id="wrapper">
+    <script type="text/javascript">
+	var noteref, mystorage;
+	var defaulthtml = '<div id="note" contenteditable="false">(Enter some text, close your browser and then open this page again.)</div>\n';
+        function initialize() {
+            if (supports_html5_storage()) {
+                // save a reference to the note area
+                noteref = document.getElementById("note");
+
+                mystorage = window.localStorage || (window.globalStorage ? globalStorage[location.hostname] : null);
+                if (mystorage) {
+                    // if there is a note already stored
+                    if (mystorage.notedata) {
+                        // re-load it
+                        noteref.innerHTML = mystorage.notedata;
+                    }
+                    // capture keystrokes and save to local data store
+                    noteref.onkeyup = function (e) {
+                        mystorage.notedata = this.innerHTML;
+                    }
+                }
+            } else {
+                alert('local storage not available with your browser.');
+            }
+        }
+
+        function supports_html5_storage() {
+            try {
+                return 'localStorage' in window && window['localStorage'] != null;
+            } catch (e) {
+                return false;
+            }
+        }
+    </script>
+
+    <div>Note to self:</div>
+    <div id="note" contenteditable="true">
+    (Enter some text, close your browser and then open this page again.)
+    </div>
+
+  </section>
+</body>
+</html>

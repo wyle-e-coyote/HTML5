@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<title>Lesson 15 - HTML5 Digital Classroom</title>
+
+
+	<link rel="stylesheet" href="reset.css" type="text/css"  />
+
+	<link rel="stylesheet" href="base.css" type="text/css"  />
+
+<script type="text/javascript">
+var shoppingcart, dragging, items = [];
+function setup(){
+	shoppingcart = document.getElementById('shoppingcart');
+	shoppingcart.ondragenter = preventDefault;	
+	shoppingcart.ondragover = preventDefault;
+	shoppingcart.ondrop = dragDrop;
+}
+function dragDrop(event){
+	addToCart( dragging, 1 );
+	return preventDefault(event);
+}
+function dragStarted( event ){
+	dragging = event.target;
+	var dragImage = document.createElement('canvas');
+	var ctx = dragImage.getContext('2d');
+	ctx.drawImage(dragging,0,0);
+	ctx.font = 'bold 1.8em sans-serif';
+	ctx.fillText('$2', 30, 100);
+	event.dataTransfer.setDragImage(dragImage, 0, 0);
+}
+function preventDefault( event ){
+	event.stopPropagation();
+	event.preventDefault();
+	return false;
+}
+function addToCart(item,quantity){
+	if(items[item.src])
+		items[item.src] = parseInt(items[item.src]) + quantity;
+	else
+		items[item.src] = [quantity];
+	redrawCart();
+}
+function redrawCart(){
+	var quantity = 0;
+	for( var i in items )
+		quantity += parseInt(items[i]);
+	var html = '<h4>Shopping Cart (' + quantity + ')</h4>';
+	for( i in items )
+		html += '<img src="'+i+'" alt="Shopping Cart Item"/><h3>'+items[i]+'</h3>';
+	html += '<div><a href="#">Checkout</a></div>';
+	shoppingcart.innerHTML = html;
+}
+</script>
+</head>
+
+
+<body id="home" onload="setup()">
+
+   
+  <!-- This is the beginning of the wrap div. This div will nest all of the other page elements and has a fixed-width of 960 pixels.-->
+
+  
+<div id="wrap">
+
+		<div id="masthead">
+
+        	<h1>The web's #1 resource for smoothie recipes</h1>
+
+			<img src="images/smoothieworld_logo.jpg" width="200" height="150" alt="smoothieworld_logo" />
+
+		</div>
+
+ 
+		<div id="nav">
+     
+           	<ul>
+	
+                	<li><a  class="nav-home" href="08_layoutwork.html">Home</a></li>
+	                      	<li><a class="nav-about" href="08_aboutus.html">About Us</a></li>
+	              		
+<li><a class="nav-recipe" href="recipes.html">Recipes</a></li>
+	                        <li><a class="nav-submitrecipese" href="submitrecipe.html">Submit a Recipe</a></li>
+
+	                	<li><a class="nav-forum" href="forum.html">Forum</a></li>
+	             		<li><a class="nav-contact"href="contact.html">Contact Us</a></li>
+
+			</ul>
+
+		</div>
+
+      
+      
+	<div id="innerwrap">
+
+    			<!-- This is the beginning of introduction content -->
+
+         <div id="shoppingcart"><h4>Shopping Cart</h4></div>
+		<div id="introduction-content">
+			<h2>Buy Smoothies</h2>
+			<p>Smoothies will be delivered cold to you <em>free of charge</em> within three to four weeks!
+			Drag the Smoothies of your choice to the shopping cart, then click checkout when finished.</p>
+			<div class="tile_list" ondragstart="dragStarted(event)">
+				<div>
+					<img src="images/TropicalKickback.png" alt="Buy Tropical Kickback"/>
+					<h4>Tropical Kickback</h4>
+				</div>
+				<div>
+					<img src="images/FunkyOrange.png" alt="Buy Funky Orange"/>
+					<h4>Funky Orange</h4>
+				</div>
+				<br/>
+			</div>
+          	</div>
+
+         <!-- End of the aside (sidebar)-->
+
+
+	</div>
+
+
+	<div id="footer">
+ 
+		<p>Copyright SmoothieWorld 2011 </p>
+
+		<p>Registration on or use of this site constitutes acceptance of our <a href="useragreement.html"> user agreement </a> and <a href="privacy.html">Privacy Policy.</a></p>
+
+	</div>
+
+</div>
+   <!-- End of the Wrap Div-->
+
+
+</body>
+</html>

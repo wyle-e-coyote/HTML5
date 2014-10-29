@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+   <title>Lesson 07 - Digital Classroom HTML5</title>
+
+  
+   <link  rel="stylesheet" media="screen" href="reset.css" type="text/css"  />
+   <link  rel="stylesheet" media="screen"  href="base.css" type="text/css"  />
+   <script src="modernizr-1.7.js"></script>
+   
+   <style>
+#orderform {
+	background: #9AB4D7;
+	padding: 20px;
+	width: 400px;
+}
+
+#orderform fieldset {
+margin-bottom: 20px;
+
+ }
+
+
+</style>
+
+</head>
+
+
+<body id="home">
+   
+  <!-- This is the beginning of the wrap div. This div will nest all of the other page elements and has a fixed-width of 960 pixels.-->
+  
+	<div id="wrap">
+		<header id="masthead">
+        	<h1>The web's #1 resource for smoothie recipes</h1>
+			<img src=images/smoothieworld_logo.jpg width=200 height=150 alt=smoothieworld_logo>
+		</header>
+ 
+		<nav>     
+             <ul>	
+                <li><a  class="nav-home" href="08_layoutwork.html">Home</a></li>                      			 
+                <li><a class="nav-about" href="08_aboutus.html">About Us</a></li>              		
+                <li><a class="nav-recipe" href="recipes.html">Recipes</a></li>                         
+             	<li><a class="nav-submitrecipese"href="submitrecipe.html">Submit a Recipe</a></li>
+                <li><a class="nav-forum"href="forum.html">Forum</a></li>             			
+                <li><a class="nav-contact"href="contact.html">Contact Us</a></li>
+			</ul>
+		</nav>
+      
+      
+		<div id="innerwrap">
+    
+<!-- This is the beginning of contact section -->
+         
+			<section id="contact">
+            <h1>Order Form </h1>
+            
+				<form id="orderform" action="" method="post"> 
+					<fieldset>
+              			<legend> Order free copies of smoothie recipes </legend>
+      
+						<p>Choose the number of books you would like to receive</p>
+
+					</fieldset>
+
+<table>  
+  
+   <tr>    
+   <th>Shipping Date</th>  
+   </tr>  
+  
+   <tr>  
+   <td>date</td>  
+   <td><input type="color"></td>  
+   </tr>  
+  
+   </tr>  
+   </table>  
+
+<input type="submit" value="Go"> 
+</form>
+          		</section>
+                
+         <!-- End of contact section -->
+         
+         <!-- This is the beginning of the aside (sidebar) -->  
+		<aside>
+			<h2>New Additions</h2>
+			<p>SmoothieWorld features smoothie recipes submitted by our community of users. Here are some of the highest rated recipes of the last 30 days.</p>
+            <h3>The Funky Orange</h3>
+			<img src="images/FunkyOrange.png" width="235" height="130" alt="FunkyOrange Smoothie" />
+			<p>Submitted by user iosborn22, this smoothie has recieved over 20 5 star ratings and its <strong>orange juice</strong> and <strong>banana</strong> base make this a great choice for breakfast!         </p>
+			<h3>The Tropical KickBack</h3>
+			<img src="images/TropicalKickback.png" alt="" width="235" height="130" />
+			<p>Submitted by user smoothj282, this smoothie combines the exotic ingredients passionfruit and mango. The result is an invgorating and delicious beverage that is great any time of the day.            </p>
+			<a href="#"><img src="images/learn_more.png" alt="Learn More" width="235" height="187"></a>
+		</aside>
+         <!-- End of the aside (sidebar)-->
+
+	</div>
+	<footer> 
+		<p>Copyright SmoothieWorld 2011 </p>
+		<p>Registration on or use of this site constitutes acceptance of our <a href="useragreement.html"> user agreement </a> and <a href="privacy.html">Privacy Policy.</a></p>
+	</footer>
+</div>
+   <!-- End of the Wrap Div-->
+
+</body>
+</html>

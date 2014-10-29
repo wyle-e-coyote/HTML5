@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkers</title>
+	<link rel="stylesheet" href="checkers.css"/>
+<script>
+var rows = [],board,dragging, pieces;
+var players = ['Player 1', 'Player 2'], colors = ['#000','#f33'], turn, turnDisplay;
+function setup()
+{
+	board = document.getElementById('board');
+	turnDisplay = document.getElementById('turnDisplay');
+	board.ondragstart = dragStarted;
+	var squares = board.getElementsByTagName('div');
+	var row = 0;
+	for(var i = 0, square; square = squares[i]; i++){
+		// Enable drag and drop
+		square.ondragenter = preventDefault;	
+		square.ondragover = dragOver;
+		square.ondrop = dragDrop;
+		if(!rows[row])
+			rows.push([]);
+		rows[row].push(square);
+		if((i+1) % 8 == 0)
+			row++;
+	}
+	startGame();
+}
+function startGame()
+{
+	var squares = board.getElementsByTagName('div');
+	// Clear existing squares
+	for(var i = 0, square; square = squares[i]; i++)
+		square.innerHTML = '&nbsp;';
+
+	// Save pieces by owner
+	pieces = [[],[]];
+	for(i = 0; i < 8; i++){
+		rows[0][i].innerHTML = '<img src="images/pawn_black.png" alt="Black Pawn"/>';
+		pieces[0].push(rows[0][i].firstChild);
+		rows[1][i].innerHTML = '<img src="images/pawn_black.png" alt="Black Pawn"/>';
+		pieces[0].push(rows[1][i].firstChild);
+		rows[6][i].innerHTML = '<img src="images/pawn_red.png" alt="Red Pawn"/>';
+		pieces[1].push(rows[6][i].firstChild);
+		rows[7][i].innerHTML = '<img src="images/pawn_red.png" alt="Red Pawn"/>';
+		pieces[1].push(rows[7][i].firstChild);
+	}
+	turn = 1;
+	changeTurn();
+}
+function dragDrop(event){
+	var dragParent;
+	if(this.innerHTML == '&nbsp;'){
+		/* dataTransfer was not the best approach for this problem.
+		Using remove/appendChild functions maintained all
+		references to the piece being dragged */
+
+		dragParent = dragging.parentNode;
+		dragParent.removeChild(dragging);
+		dragParent.innerHTML = '&nbsp;';
+		this.innerHTML = '';
+		this.appendChild(dragging);
+		changeTurn();
+	}
+	return preventDefault(event);
+}
+function dragStarted( event ){
+	if(!pieceCanDrag(event.target))
+		return preventDefault(event);
+	dragging = event.target;
+}
+function dragOver( event ){
+	if(this.innerHTML == '&nbsp;')
+		return preventDefault(event);
+	return true;
+}
+function preventDefault( event ){
+	event.stopPropagation();
+	event.preventDefault();
+	return false;
+}
+function changeTurn(){
+	turn = turn ? 0 : 1;
+	// Update turn display
+	turnDisplay.innerHTML = players[turn] + '\'s turn';
+	turnDisplay.style.color = colors[turn];
+}
+function pieceCanDrag(piece){
+	/* Setting draggable to false does not prevent
+	 drag behavior on some browsers. Preventing the
+	default behavior of the dragstarted event seems
+	to be the most reliable at this point */
+
+	// Check if the piece is owned by the player whose turn it is
+	for(var i in pieces[turn])
+		if( pieces[turn][i] === piece )
+			return true;
+	return false;
+}
+</script>
+</head>
+<body onload="setup()">
+	<div id="turnDisplay"></div>
+	<div id="board">
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div><br clear="both"/>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div>
+		<div class="black square">&nbsp;</div>
+		<div class="white square">&nbsp;</div><br clear="both"/>
+	</div>
+</body>
+</html>

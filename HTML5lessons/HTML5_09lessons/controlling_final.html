@@ -1,0 +1,24 @@
+<!doctype html> 
+<meta charset="utf-8">
+<title>HTML5 Video Lesson</title>
+<video src="videos/BigBuck.ogg" onloadedmetadata="setButtonWidth()" onplay="setPlayPause()" onpause="setPlayPause()"></video>
+<br />
+<input type="button" value="Play" id="playPause" onclick="video.play()" />
+<script type="text/javascript">
+var video = document.getElementsByTagName('video')[0];
+var playPause = document.getElementById('playPause');
+
+function setButtonWidth(e){
+	playPause.style.width = video.videoWidth + 'px';
+}
+
+function setPlayPause(e){
+	if(video.paused) {
+		playPause.value = 'Play';
+		playPause.onclick = function(e) { video.play(); }
+	}else{
+		playPause.value = 'Pause';
+		playPause.onclick = function(e) { video.pause(); }		
+	}
+}
+</script>

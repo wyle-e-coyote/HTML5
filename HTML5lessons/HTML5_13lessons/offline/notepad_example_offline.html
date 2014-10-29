@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en" manifest="http://www.[your_website].com/offline/cache.manifest">
+<head>
+    <title>Offline LocalStorage Example</title>
+    <meta charset=utf-8 />
+    <script type="text/javascript" language="javascript" src="scripts/html5.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+</head>
+
+<body>
+  <section id="wrapper">
+    <script type="text/javascript">
+        // Check if a new cache is available on page load.
+        var appCache = window.applicationCache;
+
+        window.addEventListener('load', function (e) {
+
+            appCache.addEventListener('updateready', function (e) {
+                if (appCache.status == appCache.UPDATEREADY) {
+                    // Browser has downloaded a new app cache.
+                    // Swap it in and reload the page to get the new files.
+                    appCache.swapCache();
+                    window.location.reload();
+                } else {
+                    // Manifest hasn't changed.
+                }
+            }, false);
+
+        }, false);
+    </script>
+
+    <div>Note to self:</div>
+    <div id="note" contenteditable="true">
+    (Enter some text, close your browser and then open this page again.)
+    </div>
+    <a href="#" onclick="reset_note();return false">Reset Note</a>
+
+  </section>
+</body>
+</html>
