@@ -66,29 +66,26 @@
 		<div id="innerwrap">
 
     
-<!-- This is the beginning of contact section -->
-
-         
+<!-- This is the beginning of contact section -->         
 			<section id="contact">
-
-			            <h1>Contact Us</h1>
-
+			    <h1>Contact Us</h1>
 					<form id="contactform" action="" method="post">
-
-	    
-					First name:<input type="text" name="">
-
-						<br/>
-
-						Last name:<input type="text" name="">
-
-						<input type="submit" value="Go">
-
+                        <fieldset>
+                            <legend> Personal Information </legend>
+                            <label for="firstname">First name:<input id="firstname" type="text" name="firstname"></label> 
+                            <label for="lastname">Last name:<input id="lastname" type="text" name="lastname"></label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Additional Information</legend>
+                            <p>Would you like to subscribe to the SmoothieWorld e-mail newsletter?</p>
+                            <ol>
+                                <li> <input id="yes" name="subscribe" type="radio"> <label for="yes">Yes</label> </li>
+                                <li> <input id="no" name="subscribe" type="radio"> <label for="no">No</lable> </li>
+                            </ol>
+                        </fieldset>
+                        <input type="submit" value="Go">
 					</form>
-
-	          		</section>
-
-                
+	        </section>                
          <!-- End of contact section -->
 
          

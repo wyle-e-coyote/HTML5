@@ -242,5 +242,37 @@ form {
 }
 
 #contactform {
+    background: #9AB4D7;
+    padding: 20px;
+    width: 400px;
+    border: solid #6E3E4D 2px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
 
+#contactform fieldset {
+    margin-bottom: 20px;
+}
+
+#contactform legend {
+    color:#384313;
+    font-size:1em;
+    font-weight:bold;
+    padding-bottom:10px;
+}
+
+#contactform label {
+    float: left;
+    font-size: 13px;
+    width: 110px;
+    margin-right: 60px;
+}
+
+#contactform label[for=yes], #contactform label[for=no] {
+    float:none;
+}
+
+#firstname, #lastname {
+    width:150px;
 }

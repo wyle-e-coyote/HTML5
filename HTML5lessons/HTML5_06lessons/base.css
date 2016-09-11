@@ -129,21 +129,10 @@ ol {
 
 
 #wrap {
-
- 	
-background-color: orange;
-
- 
+    background-color: orange;
 	width: 960px;
-
- 	
-border: thin solid black;
-
- 
+    border: thin solid black;
 	margin: 0 auto;
-
-
-
 }
 
 
@@ -218,92 +207,44 @@ border: thin solid black;
 }
 
 
-#nav {
-
-
+nav {
 	background-color: #60668B;
-
-
 	height: 35px;
-
-
 	background-image: url(images/bg_nav.gif);
-
-
 	background-repeat: repeat-x;
-
-
 }
 
 
-#nav li {
-
-
-	float: left;
-
- 
+nav li {
+    float: left;
 	width: 120px;
-
- 	
-height: 35px;
-
- 
+    height: 35px;
 	background-color: #7D83A4;
-
-	
-text-align: center;
-
-
-	border-left: 1px black solid;
-
-
-	border-right: 1px black solid;
-
-
-	line-height: 35px;
-
-
+    text-align: center;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    line-height: 35px;
 }
 
 
 
-#nav ul li a {
-
-
-	color:#ffffff;
-
-
-	text-decoration: none;
-
-
-	display:block;
-
-
+nav ul li a {
+    color:#ffffff;
+    text-decoration: none;
+    display:block;
 }
 
 
 
-#nav ul li a:hover {
-
-
-	background-color:#29336b;
-
-
-	color:#F8F068;
-
-
+nav ul li a:hover {
+    background-color:#29336b;
+    color:#F8F068;
 }
 
 
 body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
-
-
-	background-color:#29336b;
-
-
-	color:#F8F068;
-
-
+    background-color:#29336b;
+    color:#F8F068;
 }
 
 
@@ -321,28 +262,18 @@ body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
 
 }
 
-#aside {
-
-	float: left;
-
-
-	width: 300px;
-
-
-	background-image: url(images/sidebar_bg.png);
-
-
-	background-repeat: repeat-x;
-
-
-	background-color: #EAB8C3;
-
-
+#secondary-content {
+    float: left;
+    width: 300px;
+    background-image: url(images/sidebar_bg.png);
+    background-repeat: repeat-x;
+    background-color: #EAB8C3;
 }
 
 
 
-#introduction-content p, #introduction-content h1, #introduction-content h2, #introduction-content h3, #aside p, #aside h2, #aside h3 {
+#introduction-content p, #introduction-content h1, #introduction-content h2, 
+#introduction-content h3, #secondary-content p, #secondary-content h2, #secondary-content h3 {
 
  	
 	margin-left:20px;
@@ -355,7 +286,7 @@ body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
 
 
 
-#aside img {
+#secondary-content img {
 
 
 	margin-left:20px;
@@ -367,7 +298,7 @@ body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
 }
 
 
-#introduction-content h2, #aside h2 {
+#introduction-content h2, #secondary-content h2 {
 
  	
 	margin-top:15px;
@@ -378,30 +309,14 @@ body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
 
 
 .articleaside	{
-
-
 	float: left;
-
-
-	width: 12em;
-
-
-	background: #ddf;
-
-
-	padding: 1em 0 1em 1em;
+    width: 12em;
+    background: #ddf;
+    padding: 1em 0 1em 1em;
 	margin: 0 0.5em 0.2em 1em;
-
-
-	-webkit-border-radius: 20px;
-
-
-	-moz-border-radius: 20px;
-
-
-	border-radius: 20px;
-
-
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 
@@ -416,47 +331,22 @@ body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
 
 
 
-#footer {
-
-
-	clear: both;
-
- 
+#siteinfo {
+    clear: both;
 	background-image: url(images/footer_background.jpg);
-
- 	
-background-repeat: no-repeat;
-
- 
+    background-repeat: no-repeat;
 	width: 960px;
-
-
-	height: 118px;
-
-
-	padding-top: 10px;
-
-
-
+    height: 118px;
+    padding-top: 10px;
 }
 
 
 
-#footer p {
-
-
-	margin: 10px 0 0 20px;
-
- 	
-width:280px;
-
-	font-family:Verdana, Geneva, sans-serif;
-
-       
+#siteinfo p {
+    margin: 10px 0 0 20px;
+    width:280px;
+    font-family:Verdana, Geneva, sans-serif;
 	font-size: 0.689em;
-
-
-
 }
 
 
@@ -469,4 +359,19 @@ width:280px;
 
 }
 
+figure {
+    float:right;
+    border:1px solid gray;
+    padding:0.25em;
+    margin:0 1.5em 1.5em 0;
+}
 
+figcaption {
+    text-align:center;
+    font:italic 0.9em Georgia, "Times New Roman", Times, serif;
+}
+
+strong {
+    font-weight:normal;
+    color:red;
+}

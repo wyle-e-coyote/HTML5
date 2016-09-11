@@ -1,7 +1,13 @@
 body {
 	font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
 	font-size:100%; 	
-	
+	background-color: #B3BBCA
+}
+
+body#home .nav-home, body#aboutus .nav-about, body#contact .nav-contact {
+	background-color:#29336B;
+	color:#F8F068;
+	display:block;
 }
 
 
@@ -43,4 +49,123 @@ ul	{
 
 ol	{
 	font-size: 0.875em; 
+}
+
+
+
+/* Non-text styles */
+
+#wrap { 	
+background-color: #ffffff;
+width: 960px; 	
+border: thin solid black; 
+margin: 0 auto; 
+
+} 
+
+#innerwrap {
+	background-image:url(images/inner-wrap_bg.png);
+	background-repeat:repeat-x;
+}
+
+#innerwrap:after {
+	content:".";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+
+#masthead { 	
+background-color: #FFF; 
+} 
+
+#mainnav { 	
+background-color: #60668B;
+height: 35px; 
+}
+
+#mainnav li { 	
+float: left; 
+width: 120px; 	
+height: 35px; 
+background-color: #7D83A4; 	
+text-align: center; 	
+border-left: 1px black solid; 	
+border-right: 1px black solid;
+line-height: 35px;
+}
+
+#mainnav ul li a {
+	color:#FFFFFF;
+	text-decoration:none;
+	display:block;
+}
+
+#mainnav ul li a:hover {
+	background-color:#29336B;
+	color:#F8F068;
+}
+
+#sidebar { 	
+float: left; 	
+width: 300px; 
+/*background-color: #CCC;*/
+
+}
+
+#maincontent { 	
+	position:relative;
+	width: 600px; 	
+	float: right; 	
+/*background-color: #ADA446; */
+}
+
+#footer 
+
+{ 	
+clear: both; 
+background-color: #BA2B22;
+background-image: url(images/footer_background.jpg); 	
+background-repeat: no-repeat; 
+width: 960px;
+height: 118px;
+padding-top: 10px;
+
+}
+
+#footer p {
+margin: 10px 0 0 20px; 	
+width:280px;   	
+font-family:Verdana, Geneva, sans-serif;            
+font-size: 0.689em;
+
+}
+
+
+p, h1, h2, h3, h4 { 	
+
+margin-bottom: 20px;	
+
+}
+
+#sidebar p, #sidebar h2, #sidebar h3, #sidebar h4, #maincontent p, #maincontent h1, #maincontent h2, #maincontent h3{ 	
+margin-left:20px;
+margin-right:20px;
+}
+
+#sidebar p {
+	margin-left:30px;
+}
+
+#sidebar h2  { 	
+margin-top:15px; 
+}
+
+#splash {
+	position:absolute;
+	width:290px;
+	height:230px;
+	top:35px;
+	left:35px;
 }
